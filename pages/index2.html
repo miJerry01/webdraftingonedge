@@ -1,0 +1,331 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Spec-A2-101 [15kV Insulator]</title>
+
+  <!-- ==========================================
+       EDGE - EXISTING STYLESHEETS
+  ========================================== -->
+
+  <link rel="stylesheet" href="../style/general1.css" />
+   <link rel="stylesheet" href="../style/insulator-page.css" />
+  <link rel="stylesheet" href="../style/spec11-wrap.css" />
+  <link rel="stylesheet" href="../style/spec12-wrap.css" />
+  <link rel="stylesheet" href="../style/spec13-wrap.css" />
+
+  <!-- ==========================================
+       INSULATOR SPECIFICATION PAGE CSS
+
+       Page-specific styles override the existing
+       layout without changing other EDGE pages.
+  ========================================== -->
+
+  <link rel="stylesheet" href="../style/insulator-page.css" />
+
+</head>
+
+<body>
+
+<!-- ==========================================
+     PAGE NAVIGATION
+========================================== -->
+
+<nav class="top-page-nav" aria-label="Page navigation">
+  <a class="home-tab" href="../index.html">
+    Home Page
+  </a>
+</nav>
+
+
+<!-- ==========================================
+     PRINT / PDF BUTTON
+========================================== -->
+
+<button class="print-btn" onclick="window.print()">
+  PRINT / PDF
+</button>
+
+
+<!-- ==========================================
+     PAGE 10 - 15kV INSULATOR SPECIFICATION
+
+     Layout follows Picture B:
+
+     ROW 1 - Centered equipment title
+     ROW 2 - Enlarged technical SVG drawing
+     ROW 3 - Technical specifications
+     FOOTER - Engineering revision title block
+========================================== -->
+
+<main class="page page10 insulator-page">
+
+  <section class="house-100 model-page-content insulator-sheet">
+
+
+    <!-- ==========================================
+         ROW 1 - EQUIPMENT TITLE
+
+         Centers the equipment title at the
+         top of the specification page.
+
+         The title and catalog identification
+         are positioned on separate lines.
+    ========================================== -->
+
+    <header class="model-page-header insulator-header">
+
+      <h1>
+        <span class="insulator-title">
+          15kV INSULATOR
+        </span>
+
+        <span class="insulator-catalog">
+          CATALOG NO.A111
+        </span>
+      </h1>
+
+    </header>
+
+
+    <!-- ==========================================
+         ROW 2 - TECHNICAL DRAWING
+
+         Displays the insulator SVG file.
+
+         Drawing is centered horizontally
+         and vertically within the available
+         drawing area.
+
+         The SVG scales proportionally while
+         preserving its original aspect ratio.
+    ========================================== -->
+
+    <div class="insulator-drawing">
+
+      <img
+        src="../image/Insluator-1 SVG.svg"
+        alt="15kV Insulator technical drawing showing top and side views"
+        class="insulator-svg"
+      />
+
+    </div>
+
+
+    <!-- ==========================================
+         ROW 3 - KEY FEATURES AND SPECIFICATIONS
+
+         Full-width specification section
+         positioned below the technical drawing.
+
+         Contains:
+         - Application
+         - Voltage Rating
+         - MCOV
+         - Construction
+         - Components
+         - Performance
+    ========================================== -->
+
+    <article class="model-page-text-section insulator-specs">
+
+      <h2>KEY FEATURES AND SPECIFICATIONS:</h2>
+
+      <ul>
+
+        <!-- APPLICATION -->
+        <li>
+          <strong>Application:</strong>
+          Specifically for riser poles to protect underground cables.
+        </li>
+
+        <!-- VOLTAGE RATING -->
+        <li>
+          <strong>Voltage Rating:</strong>
+          18 KV nominal.
+        </li>
+
+        <!-- MAXIMUM CONTINUOUS OPERATING VOLTAGE -->
+        <li>
+          <strong>MCOV:</strong>
+          15.3 kV.
+        </li>
+
+        <!-- CONSTRUCTION MATERIAL -->
+        <li>
+          <strong>Construction:</strong>
+          Polymer housing (often ESP™ or silicone) for superior
+          tracking resistance and durability.
+        </li>
+
+        <!-- EQUIPMENT COMPONENTS -->
+        <li>
+          <strong>Components:</strong>
+          Usually includes a mounting bracket and sometimes
+          a disconnect switch.
+        </li>
+
+        <!-- ELECTRICAL PERFORMANCE -->
+        <li>
+          <strong>Performance:</strong>
+          Designed to handle high energy discharge with
+          lower let-through voltage compared to standard
+          distribution arresters.
+        </li>
+
+      </ul>
+
+    </article>
+
+  </section>
+
+
+  <!-- ==========================================
+       ENGINEERING REVISION FOOTER
+
+       Preserves existing EDGE title block
+       and revision information.
+  ========================================== -->
+
+  <footer class="house-100-footer">
+
+    <div
+      class="house-100-wrap"
+      id="house100-container">
+    </div>
+
+  </footer>
+
+</main>
+
+
+<script>
+
+/* ==========================================
+   PAGE 10 - FOOTER DATA
+========================================== */
+
+const house100Data = {
+
+  main:
+    '<img src="../image/Logo3.svg" alt="EDGE Logo" class="footer-logo">',
+
+  initiatedBy: "INITIATED BY",
+
+  narrow: ["EON", "12-23"],
+
+  revisionLabels: [
+    "REVISION No.",
+    "STANDARDS",
+    "REVISED BY"
+  ],
+
+  revisionValues: [
+    "2",
+    "12-26",
+    "IEA"
+  ],
+
+  bottomLeft: "STANDARDS",
+
+  end: "AP-A111 <br> Pg. 1 OF 1"
+
+};
+
+
+/* ==========================================
+   BUILD ENGINEERING FOOTER TABLE
+
+   Generates the original EDGE revision
+   table using the supplied footer data.
+========================================== */
+
+function buildFooterTable(data, tableClass) {
+
+  return `
+    <table class="${tableClass}">
+      <tbody>
+
+        <tr>
+
+          <td class="cell-main" rowspan="3">
+            ${data.main}
+          </td>
+
+          <td class="cell-two-top" rowspan="2">
+            ${data.initiatedBy}
+          </td>
+
+          <td class="cell-narrow" rowspan="3">
+
+            <div class="cell-narrow-inner">
+              <div>${data.narrow[0]}</div>
+              <div>${data.narrow[1]}</div>
+            </div>
+
+          </td>
+
+          <td class="cell-three-1">
+            ${data.revisionLabels[0]}
+          </td>
+
+          <td class="cell-three-narrow-1">
+            ${data.revisionValues[0]}
+          </td>
+
+          <td class="cell-end" rowspan="3">
+            ${data.end}
+          </td>
+
+        </tr>
+
+        <tr>
+
+          <td class="cell-three-2">
+            ${data.revisionLabels[1]}
+          </td>
+
+          <td class="cell-three-narrow-2">
+            ${data.revisionValues[1]}
+          </td>
+
+        </tr>
+
+        <tr>
+
+          <td class="cell-two-bottom">
+            ${data.bottomLeft}
+          </td>
+
+          <td class="cell-three-3">
+            ${data.revisionLabels[2]}
+          </td>
+
+          <td class="cell-three-narrow-3">
+            ${data.revisionValues[2]}
+          </td>
+
+        </tr>
+
+      </tbody>
+    </table>
+  `;
+
+}
+
+
+/* ==========================================
+   INSERT FOOTER INTO PAGE
+========================================== */
+
+document.getElementById("house100-container").innerHTML =
+  buildFooterTable(house100Data, "house-100-table");
+
+</script>
+
+</body>
+</html>
