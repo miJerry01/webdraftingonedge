@@ -201,80 +201,8 @@ body {
   background: #ffffff;
 }
 
-.house-A2-inner.spec12-wrap {
-  width: calc(100% + 0.22in);
-  max-width: none;
-  max-height: 100%;
-  margin-left: -0.11in;
-  margin-right: -0.11in;
-  padding: 0;
-  overflow-x: hidden;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
-.house-A2-inner.spec12-wrap table {
-  width: 100%;
-  max-width: 100%;
-  table-layout: fixed;
-  border-collapse: collapse;
-  line-height: 1;
-  background: #ffffff;
-  border: 1px solid var(--line-neutral);
-}
-
-.house-A2-inner.spec12-wrap th,
-.house-A2-inner.spec12-wrap td {
-  padding: 0.06rem 0.07rem;
-  border: 1px solid var(--line-neutral);
-  font-size: 0.82rem;
-  line-height: 1.1;
-  text-align: center;
-  vertical-align: middle;
-  white-space: nowrap;
-}
-
-.house-A2-inner.spec12-wrap th {
-  background: var(--clr--gray_ivory);
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.02rem;
-}
-
-.house-A2-inner.spec12-wrap .item-header,
-.house-A2-inner.spec12-wrap td:first-child {
-  width: 7%;
-}
-
-.house-A2-inner.spec12-wrap .description,
-.house-A2-inner.spec12-wrap .description-cell,
-.house-A2-inner.spec12-wrap td:nth-child(2) {
-  width: 33%;
-  max-width: 33%;
-  text-align: left;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.house-A2-inner.spec12-wrap .assembly-header {
-  width: 50%;
-  text-align: center;
-}
-
-.house-A2-inner.spec12-wrap thead tr:nth-child(2) th,
-.house-A2-inner.spec12-wrap td:nth-child(n+3):nth-child(-n+12) {
-  width: 4.1ch;
-  min-width: 4.1ch;
-  max-width: 4.1ch;
-  padding-left: 0.02rem;
-  padding-right: 0.02rem;
-}
-
-.house-A2-inner.spec12-wrap .part-number,
-.house-A2-inner.spec12-wrap td:last-child {
-  width: 9%;
-}
+/* SPEC-12 table columns, borders, and links are exclusively styled
+   in style/spec12-wrap.css to avoid conflicting width rules. */
 
 .page2-text-section {
   margin-top: 0.10in;
@@ -1062,29 +990,8 @@ transform: none;
     overflow: hidden !important;
   }
 
-  .house-A2-inner.spec12-wrap {
-    width: calc(100% + 0.22in) !important;
-    max-width: none !important;
-    max-height: 100% !important;
-    margin-left: -0.11in !important;
-    margin-right: -0.11in !important;
-    padding: 0 !important;
-    overflow: hidden !important;
-  }
+  /* SPEC-12 print widths and cell padding are controlled in spec12-wrap.css. */
 
-  .house-A2-inner.spec12-wrap table {
-    width: 100% !important;
-    max-width: 100% !important;
-    table-layout: fixed !important;
-    border-collapse: collapse !important;
-  }
-
-  .house-A2-inner.spec12-wrap th,
-  .house-A2-inner.spec12-wrap td {
-    padding: 0.05rem 0.06rem !important;
-    font-size: 0.70rem !important;
-    line-height: 1.05 !important;
-  }
 /* =========================
    PAGE 3 PRINT
 ========================= */
