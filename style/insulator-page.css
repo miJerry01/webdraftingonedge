@@ -1,0 +1,598 @@
+
+/* ==========================================
+   EDGE DRAFTING GAS & ELECTRIC
+   15kV INSULATOR - SPECIFICATION PAGE
+
+   FILE: insulator-page.css
+
+   PURPOSE:
+   Rearrange Picture A to match Picture B.
+
+   STRUCTURE:
+   1. Centered heading at top
+   2. Large centered technical drawing
+   3. Full-width specification list at bottom
+   4. Engineering revision footer
+
+   All styles are scoped to .insulator-page
+   to prevent changes to existing EDGE pages.
+========================================== */
+
+
+/* ==========================================
+   PAGE 10 - MAIN PAGE CONTAINER
+
+   Maintains the existing 8.5 x 11 inch
+   specification sheet.
+
+   The footer remains in the second row.
+========================================== */
+
+.insulator-page {
+  width: 8.5in;
+  height: 11in;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: minmax(0, 1fr) 0.62in;
+
+  overflow: hidden;
+  background: #ffffff;
+
+  page-break-after: auto;
+}
+
+
+/* ==========================================
+   PAGE 10 - CONTENT GRID
+
+   IMPORTANT:
+   Changes the original two-column layout
+   into a full-width, three-row layout.
+
+   ROW 1: Equipment heading
+   ROW 2: Technical SVG drawing
+   ROW 3: Equipment specifications
+
+   The middle row expands to occupy
+   the remaining available page height.
+========================================== */
+
+.insulator-page .insulator-sheet {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  min-width: 0;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto minmax(0, 1fr) auto;
+
+  gap: 0;
+  padding: 0.18in 0.28in 0.15in;
+
+  overflow: hidden;
+  background: #ffffff;
+}
+
+
+/* ==========================================
+   ROW 1 - EQUIPMENT HEADER
+
+   Centers the equipment identification
+   across the entire width of the page.
+
+   Removes the original header's
+   two-column arrangement.
+========================================== */
+
+.insulator-page .insulator-header {
+  display: block;
+
+  width: 100%;
+  margin: 0;
+  padding: 0.05in 0 0;
+
+  text-align: center;
+  background: #ffffff;
+}
+
+
+/* ==========================================
+   EQUIPMENT HEADER CONTAINER
+
+   Removes the original right padding
+   inherited from .model-page-header h1.
+
+   Prevents the title from shifting
+   away from the center.
+========================================== */
+
+.insulator-page .insulator-header h1 {
+  width: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  font-family: Verdana, Geneva, sans-serif;
+  text-align: center;
+
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+
+/* ==========================================
+   EQUIPMENT TITLE
+
+   Text:
+   15kV INSULATOR
+
+   Matches Picture B's large,
+   bold, underlined heading.
+========================================== */
+
+.insulator-page .insulator-title {
+  display: block;
+
+  width: 100%;
+
+  font-size: 1.55rem;
+  font-weight: 900;
+  line-height: 1.2;
+
+  text-align: center;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+
+/* ==========================================
+   EQUIPMENT CATALOG NUMBER
+
+   Displays directly beneath the title.
+
+   Text:
+   CATALOG NO.A111
+========================================== */
+
+.insulator-page .insulator-catalog {
+  display: block;
+
+  margin-top: 0.07in;
+
+  font-size: 0.88rem;
+  font-weight: 900;
+  line-height: 1.2;
+
+  text-align: center;
+  text-decoration: none;
+}
+
+
+/* ==========================================
+   ROW 2 - TECHNICAL DRAWING CONTAINER
+
+   Replaces the original small drawing layout.
+
+   Uses the full available page width.
+
+   Centers the SVG vertically and
+   horizontally in the drawing area.
+
+   The drawing occupies the space between
+   the heading and specification section.
+========================================== */
+
+.insulator-page .insulator-drawing {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0.10in 0.05in;
+
+  overflow: hidden;
+  background: #ffffff;
+}
+
+
+/* ==========================================
+   TECHNICAL SVG DRAWING
+
+   File:
+   Insluator-1 SVG.svg
+
+   The SVG is enlarged to fit the drawing
+   container without distortion.
+
+   object-fit: contain preserves the
+   original aspect ratio.
+
+   DRAWING SCALE:
+   Change --drawing-scale if additional
+   enlargement or reduction is required.
+
+   Example:
+   1.00 = Original fitted size
+   1.10 = 10% enlargement
+   1.20 = 20% enlargement
+
+      FILE: Insluator-1 SVG.svg
+
+   DRAWING SCALE:
+   1.00 = Original size (100%)
+   1.10 = 10% larger
+   1.20 = 20% larger
+   1.30 = 30% larger
+   1.50 = 50% larger
+
+   Enlarges the SVG while preserving its
+   aspect ratio and centered alignment.
+========================================== */
+
+.insulator-page .insulator-svg {
+
+  /* Increase drawing size by 30% */
+  --drawing-scale: 1.50;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  max-width: 100%;
+  max-height: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  object-fit: contain;
+  object-position: center center;
+
+  /* Apply enlargement */
+  transform: scale(var(--drawing-scale));
+  transform-origin: center center;
+
+}
+
+/* ==========================================
+   ROW 3 - SPECIFICATION SECTION
+
+   Moves KEY FEATURES AND SPECIFICATIONS
+   beneath the engineering drawing.
+
+   The section spans the full page width,
+   rather than occupying the right column.
+
+   Padding provides the engineering drawing
+   sheet margins shown in Picture B.
+========================================== */
+
+.insulator-page .insulator-specs {
+  grid-column: 1;
+
+  width: 100%;
+  min-width: 0;
+  height: auto;
+
+  margin: 0;
+  padding: 0.10in 0.35in 0.12in;
+
+  overflow: hidden;
+
+  background: #ffffff;
+  color: #000000;
+
+  font-family: Verdana, Geneva, sans-serif;
+}
+
+
+/* ==========================================
+   SPECIFICATION HEADING
+
+   Text:
+   KEY FEATURES AND SPECIFICATIONS:
+
+   Aligns the heading with the list below.
+========================================== */
+
+.insulator-page .insulator-specs h2 {
+  margin: 0 0 0.08in;
+
+  padding: 0;
+
+  font-size: 0.85rem;
+  font-weight: 900;
+  line-height: 1.25;
+
+  text-align: left;
+  text-decoration: none;
+}
+
+
+/* ==========================================
+   SPECIFICATION BULLET LIST
+
+   Aligns the bullets below the heading.
+
+   Uses black circular markers,
+   matching the reference image.
+========================================== */
+
+.insulator-page .insulator-specs ul {
+  display: block;
+
+  margin: 0 0 0 0.28in;
+  padding: 0;
+
+  list-style-type: disc;
+  list-style-position: outside;
+}
+
+
+/* ==========================================
+   SPECIFICATION LIST ITEMS
+
+   Increases text size from Picture A.
+
+   Adds consistent spacing between
+   individual technical specifications.
+========================================== */
+
+.insulator-page .insulator-specs li {
+  margin: 0 0 0.075in;
+  padding: 0 0 0 0.04in;
+
+  font-size: 0.77rem;
+  font-weight: 400;
+  line-height: 1.35;
+
+  text-align: left;
+}
+
+
+/* ==========================================
+   SPECIFICATION LABELS
+
+   Applies bold formatting to:
+
+   Application
+   Voltage Rating
+   MCOV
+   Construction
+   Components
+   Performance
+========================================== */
+
+.insulator-page .insulator-specs li strong {
+  font-weight: 900;
+}
+
+
+/* ==========================================
+   SPECIFICATION BULLET MARKERS
+
+   Keeps bullet markers proportional
+   to the specification text.
+========================================== */
+
+.insulator-page .insulator-specs li::marker {
+  color: #000000;
+  font-size: 0.77rem;
+}
+
+
+/* ==========================================
+   PAGE 10 - FOOTER
+
+   Preserves the existing EDGE engineering
+   revision title block and its position
+   at the bottom of the sheet.
+========================================== */
+
+.insulator-page .house-100-footer {
+  width: 100%;
+  height: 0.62in;
+  min-height: 0.62in;
+
+  display: flex;
+
+  overflow: hidden;
+  background: #ffffff;
+}
+
+
+/* ==========================================
+   RESPONSIVE DISPLAY
+
+   Keeps the specification as a single
+   full-width column.
+
+   Existing .page scaling rules in general1.css
+   can continue to handle smaller screens.
+========================================== */
+
+@media screen and (max-width: 900px) {
+
+  .insulator-page .insulator-sheet {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr) auto;
+  }
+
+  .insulator-page .insulator-header {
+    display: block;
+    text-align: center;
+  }
+
+  .insulator-page .insulator-drawing {
+    width: 100%;
+  }
+
+  .insulator-page .insulator-specs {
+    width: 100%;
+  }
+
+}
+
+
+/* ==========================================
+   PRINT / PDF SETTINGS
+
+   Preserves Picture B's structure
+   in Letter portrait print output.
+
+   IMPORTANT:
+   The !important declarations override
+   the existing general1.css print rules
+   that were designed for earlier pages.
+========================================== */
+
+@media print {
+
+  /* PAGE DIMENSIONS */
+
+  .insulator-page {
+    width: 8.5in !important;
+    height: 11in !important;
+
+    display: grid !important;
+
+    grid-template-columns: 1fr !important;
+    grid-template-rows: minmax(0, 1fr) 0.62in !important;
+
+    overflow: hidden !important;
+
+    page-break-after: auto !important;
+    break-after: auto !important;
+  }
+
+
+  /* MAIN THREE-ROW CONTENT GRID */
+
+  .insulator-page .insulator-sheet {
+    width: 100% !important;
+    height: 100% !important;
+
+    display: grid !important;
+
+    grid-template-columns: minmax(0, 1fr) !important;
+    grid-template-rows: auto minmax(0, 1fr) auto !important;
+
+    gap: 0 !important;
+
+    padding: 0.15in 0.25in 0.12in !important;
+
+    overflow: hidden !important;
+  }
+
+
+  /* CENTERED EQUIPMENT HEADER */
+
+  .insulator-page .insulator-header {
+    display: block !important;
+
+    width: 100% !important;
+    padding: 0.04in 0 0 !important;
+
+    text-align: center !important;
+  }
+
+  .insulator-page .insulator-header h1 {
+    width: 100% !important;
+    padding: 0 !important;
+    text-align: center !important;
+  }
+
+
+  /* TITLE SIZE */
+
+  .insulator-page .insulator-title {
+    font-size: 1.48rem !important;
+    font-weight: 900 !important;
+  }
+
+  .insulator-page .insulator-catalog {
+    font-size: 0.85rem !important;
+  }
+
+
+  /* FULL-WIDTH TECHNICAL DRAWING */
+
+  .insulator-page .insulator-drawing {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    overflow: hidden !important;
+
+    background: #ffffff !important;
+  }
+
+  .insulator-page .insulator-svg {
+    width: 100% !important;
+    height: 100% !important;
+
+    max-width: 100% !important;
+    max-height: 100% !important;
+
+    object-fit: contain !important;
+    object-position: center center !important;
+  }
+
+
+  /* FULL-WIDTH TECHNICAL SPECIFICATIONS */
+
+  .insulator-page .insulator-specs {
+    width: 100% !important;
+
+    margin: 0 !important;
+    padding: 0.08in 0.30in 0.10in !important;
+
+    overflow: hidden !important;
+  }
+
+  .insulator-page .insulator-specs h2 {
+    margin-bottom: 0.07in !important;
+
+    font-size: 0.78rem !important;
+    line-height: 1.2 !important;
+  }
+
+  .insulator-page .insulator-specs ul {
+    margin-left: 0.27in !important;
+    padding-left: 0 !important;
+  }
+
+  .insulator-page .insulator-specs li {
+    margin-bottom: 0.065in !important;
+
+    font-size: 0.72rem !important;
+    line-height: 1.3 !important;
+  }
+
+  .insulator-page .insulator-specs li::marker {
+    font-size: 0.72rem !important;
+  }
+
+
+  /* FOOTER POSITION */
+
+  .insulator-page .house-100-footer {
+    width: 100% !important;
+    height: 0.62in !important;
+    min-height: 0.62in !important;
+  }
+
+}
